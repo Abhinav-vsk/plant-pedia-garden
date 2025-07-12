@@ -8,35 +8,60 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Garden Theme - Light Mode */
+    --background: 120 15% 98%;
+    --foreground: 140 30% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 140 30% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 140 30% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Garden Primary - Deep Emerald */
+    --primary: 152 55% 30%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 152 45% 40%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Garden Secondary - Sage Green */
+    --secondary: 140 20% 88%;
+    --secondary-foreground: 140 30% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Garden Muted - Soft Neutral */
+    --muted: 120 10% 95%;
+    --muted-foreground: 140 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Garden Accent - Fresh Green */
+    --accent: 142 35% 85%;
+    --accent-foreground: 140 30% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Garden Borders */
+    --border: 140 15% 88%;
+    --input: 140 15% 88%;
+    --ring: 152 55% 30%;
 
-    --radius: 0.5rem;
+    /* Garden Specific Colors */
+    --plant-card-bg: 0 0% 100%;
+    --plant-card-hover: 142 25% 96%;
+    --garden-earth: 30 25% 85%;
+    --garden-leaf: 142 50% 65%;
+    --help-button: 40 95% 50%;
+    --help-button-hover: 35 95% 45%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(152 55% 30%), hsl(152 45% 40%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(142 25% 96%));
+    --gradient-header: linear-gradient(180deg, hsl(120 15% 98%), hsl(140 20% 95%));
+
+    /* Shadows */
+    --shadow-soft: 0 2px 8px hsl(140 30% 15% / 0.08);
+    --shadow-card: 0 4px 12px hsl(140 30% 15% / 0.1);
+    --shadow-elevated: 0 8px 25px hsl(140 30% 15% / 0.15);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +125,23 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-poppins;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
