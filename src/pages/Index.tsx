@@ -30,7 +30,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-header font-poppins">
       {/* Header */}
-      <div className="bg-gradient-primary text-primary-foreground py-8 shadow-soft">
+      <div className="bg-gradient-header text-foreground py-8 shadow-soft relative overflow-hidden leaf-pattern">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center gap-3 mb-6">
             <Leaf className="w-8 h-8" />
@@ -65,7 +65,7 @@ const Index = () => {
 
         {/* Plant Grid */}
         {filteredPlants.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {filteredPlants.map((plant) => (
               <PlantCard
                 key={plant.id}
