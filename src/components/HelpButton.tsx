@@ -15,10 +15,10 @@ export const HelpButton = () => {
       {/* Help Button */}
       <Button
         onClick={() => setShowContact(!showContact)}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-help hover:bg-help-hover text-white shadow-elevated hover:shadow-elevated transition-all duration-300 hover:scale-110 z-50 font-poppins"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-help hover:bg-help-hover text-white shadow-elevated hover:shadow-elevated transition-all duration-300 hover:scale-110 z-50 font-poppins"
         size="icon"
       >
-        {showContact ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <HelpCircle className="w-5 h-5 sm:w-6 sm:h-6" />}
+        {showContact ? <X className="w-6 h-6 sm:w-7 sm:h-7" /> : <HelpCircle className="w-6 h-6 sm:w-7 sm:h-7" />}
       </Button>
 
       {/* Contact Info Card */}
@@ -33,9 +33,9 @@ export const HelpButton = () => {
             </p>
             <Button 
               onClick={handleCall}
-              className="w-full bg-primary hover:bg-primary-glow text-primary-foreground font-poppins transition-colors duration-200"
+              className="w-full bg-primary hover:bg-primary-glow text-primary-foreground font-poppins transition-colors duration-200 text-base py-3"
             >
-              <Phone className="w-4 h-4 mr-2" />
+              <Phone className="w-5 h-5 mr-2" />
               Call +91 98765 43210
             </Button>
           </CardContent>

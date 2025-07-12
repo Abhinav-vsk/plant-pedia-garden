@@ -5,17 +5,42 @@ import { PlantDetailModal } from '@/components/PlantDetailModal';
 import { SearchBar } from '@/components/SearchBar';
 import { HelpButton } from '@/components/HelpButton';
 import { Leaf } from 'lucide-react';
+import { 
+  Pagination, 
+  PaginationContent, 
+  PaginationItem, 
+  PaginationLink, 
+  PaginationNext, 
+  PaginationPrevious 
+} from '@/components/ui/pagination';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Index = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedPlant, setSelectedPlant] = useState<Plant | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  
+  const isMobile = useIsMobile();
+  const plantsPerPage = isMobile ? 6 : 4;
 
   // Filter plants based on search term
   const filteredPlants = plantsData.filter(plant =>
     plant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     plant.scientificName.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  // Pagination logic
+  const totalPages = Math.ceil(filteredPlants.length / plantsPerPage);
+  const startIndex = (currentPage - 1) * plantsPerPage;
+  const endIndex = startIndex + plantsPerPage;
+  const currentPlants = filteredPlants.slice(startIndex, endIndex);
+
+  // Reset to first page when search term changes
+  const handleSearchChange = (newSearchTerm: string) => {
+    setSearchTerm(newSearchTerm);
+    setCurrentPage(1);
+  };
 
   const handlePlantClick = (plant: Plant) => {
     setSelectedPlant(plant);
@@ -46,7 +71,7 @@ const Index = () => {
           {/* Search Bar */}
           <SearchBar 
             searchTerm={searchTerm} 
-            onSearchChange={setSearchTerm} 
+            onSearchChange={handleSearchChange} 
           />
         </div>
       </div>
@@ -65,15 +90,67 @@ const Index = () => {
 
         {/* Plant Grid */}
         {filteredPlants.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-            {filteredPlants.map((plant) => (
-              <PlantCard
-                key={plant.id}
-                plant={plant}
-                onClick={() => handlePlantClick(plant)}
-              />
-            ))}
-          </div>
+          <>
+            <div className={`grid gap-4 sm:gap-6 ${
+              isMobile 
+                ? 'grid-cols-2' 
+                : 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
+            }`}>
+              {currentPlants.map((plant) => (
+                <PlantCard
+                  key={plant.id}
+                  plant={plant}
+                  onClick={() => handlePlantClick(plant)}
+                />
+              ))}
+            </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="mt-8 flex justify-center">
+                <Pagination>
+                  <PaginationContent>
+                    <PaginationItem>
+                      <PaginationPrevious 
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          if (currentPage > 1) setCurrentPage(currentPage - 1);
+                        }}
+                        className={currentPage === 1 ? 'pointer-events-none opacity-50' : ''}
+                      />
+                    </PaginationItem>
+                    
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
+                      <PaginationItem key={pageNumber}>
+                        <PaginationLink
+                          href="#"
+                          isActive={currentPage === pageNumber}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setCurrentPage(pageNumber);
+                          }}
+                        >
+                          {pageNumber}
+                        </PaginationLink>
+                      </PaginationItem>
+                    ))}
+                    
+                    <PaginationItem>
+                      <PaginationNext 
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+                        }}
+                        className={currentPage === totalPages ? 'pointer-events-none opacity-50' : ''}
+                      />
+                    </PaginationItem>
+                  </PaginationContent>
+                </Pagination>
+              </div>
+            )}
+          </>
         ) : (
           <div className="text-center py-16">
             <Leaf className="w-16 h-16 text-muted-foreground mx-auto mb-4" />

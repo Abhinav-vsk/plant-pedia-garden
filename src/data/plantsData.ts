@@ -8,6 +8,16 @@ import bostonFernImg from '@/assets/boston-fern.jpg';
 import rubberPlantImg from '@/assets/rubber-plant.jpg';
 import zzPlantImg from '@/assets/zz-plant.jpg';
 import jadePlantImg from '@/assets/jade-plant.jpg';
+import lavenderImg from '@/assets/lavender.jpg';
+import pothosImg from '@/assets/pothos.jpg';
+import philodendronImg from '@/assets/philodendron.jpg';
+import bambooPalmImg from '@/assets/bamboo-palm.jpg';
+import chineseEvergreenImg from '@/assets/chinese-evergreen.jpg';
+import crotonImg from '@/assets/croton.jpg';
+import dumbCaneImg from '@/assets/dumb-cane.jpg';
+import dracaenaImg from '@/assets/dracaena.jpg';
+import calatheaImg from '@/assets/calathea.jpg';
+import fiddleLeafFigImg from '@/assets/fiddle-leaf-fig.jpg';
 
 export interface Plant {
   id: number;
@@ -175,5 +185,155 @@ export const plantsData: Plant[] = [
     },
     difficultyLevel: "Easy",
     lifespan: "20+ years, can become a small tree"
+  },
+  {
+    id: 11,
+    name: "Lavender",
+    scientificName: "Lavandula",
+    image: lavenderImg,
+    description: "Lavender is an aromatic flowering plant known for its beautiful purple flowers and calming fragrance. It's perfect for both indoor and outdoor growing, providing natural aromatherapy benefits.",
+    benefits: "Aromatherapy, stress relief, natural insect repellent, promotes relaxation and better sleep",
+    care: {
+      watering: "Once a week, allow soil to dry between waterings",
+      sunlight: "Full sun, 6-8 hours of direct light",
+      soil: "Well-drained sandy soil, slightly alkaline"
+    },
+    difficultyLevel: "Medium",
+    lifespan: "15-20 years with proper care"
+  },
+  {
+    id: 12,
+    name: "Pothos",
+    scientificName: "Epipremnum aureum",
+    image: pothosImg,
+    description: "Pothos is one of the easiest houseplants to grow, featuring heart-shaped leaves that cascade beautifully. It's excellent for beginners and thrives in various lighting conditions.",
+    benefits: "Air purifier, easy to propagate, removes formaldehyde and xylene from air",
+    care: {
+      watering: "Once a week, when top inch of soil is dry",
+      sunlight: "Low to medium indirect light",
+      soil: "Well-draining standard potting soil"
+    },
+    difficultyLevel: "Easy",
+    lifespan: "10+ years, can propagate indefinitely"
+  },
+  {
+    id: 13,
+    name: "Philodendron",
+    scientificName: "Philodendron hederaceum",
+    image: philodendronImg,
+    description: "The Heartleaf Philodendron is a classic trailing houseplant with glossy, heart-shaped leaves. It's incredibly adaptable and perfect for hanging baskets or climbing support.",
+    benefits: "Decorative trailing vine, oxygen boosting, easy care for beginners",
+    care: {
+      watering: "Once a week, keep soil slightly moist",
+      sunlight: "Medium indirect light, tolerates low light",
+      soil: "Moist, well-drained potting mix"
+    },
+    difficultyLevel: "Easy",
+    lifespan: "10+ years with proper care"
+  },
+  {
+    id: 14,
+    name: "Bamboo Palm",
+    scientificName: "Chamaedorea seifrizii",
+    image: bambooPalmImg,
+    description: "The Bamboo Palm is an elegant indoor palm that brings tropical vibes to any space. It naturally humidifies the air and is excellent for removing common household toxins.",
+    benefits: "Natural humidifier, air purifier, adds tropical ambiance, easy maintenance",
+    care: {
+      watering: "Every 4-5 days, keep soil consistently moist",
+      sunlight: "Low to medium indirect light",
+      soil: "Peaty, well-draining soil mix"
+    },
+    difficultyLevel: "Medium",
+    lifespan: "10+ years indoors"
+  },
+  {
+    id: 15,
+    name: "Chinese Evergreen",
+    scientificName: "Aglaonema",
+    image: chineseEvergreenImg,
+    description: "Chinese Evergreen is prized for its beautiful variegated foliage in shades of green, silver, and pink. It's one of the best plants for low-light conditions.",
+    benefits: "Air purifying, thrives in low light, decorative colorful foliage",
+    care: {
+      watering: "Every 7-10 days, allow soil to dry slightly",
+      sunlight: "Low to moderate indirect light",
+      soil: "Well-draining potting soil"
+    },
+    difficultyLevel: "Easy",
+    lifespan: "5-10 years with proper care"
+  },
+  {
+    id: 16,
+    name: "Croton",
+    scientificName: "Codiaeum variegatum",
+    image: crotonImg,
+    description: "Croton plants are known for their stunning, colorful foliage that changes from green to brilliant yellows, oranges, and reds. They make excellent decorative statement pieces.",
+    benefits: "Colorful decorative leaves, enhances interior decor, mood-boosting bright colors",
+    care: {
+      watering: "Weekly, keep soil evenly moist",
+      sunlight: "Bright indirect light for best color",
+      soil: "Moist, well-drained potting soil"
+    },
+    difficultyLevel: "Medium",
+    lifespan: "5-8 years indoors"
+  },
+  {
+    id: 17,
+    name: "Dumb Cane",
+    scientificName: "Dieffenbachia",
+    image: dumbCaneImg,
+    description: "Dumb Cane features large, attractive leaves with cream and green patterns. It's an excellent choice for adding tropical flair to indoor spaces.",
+    benefits: "Ornamental foliage, air purification, adds tropical atmosphere",
+    care: {
+      watering: "Weekly, keep soil moderately moist",
+      sunlight: "Bright indirect light",
+      soil: "Rich, well-draining potting mix"
+    },
+    difficultyLevel: "Medium",
+    lifespan: "5-10 years with proper care"
+  },
+  {
+    id: 18,
+    name: "Dracaena",
+    scientificName: "Dracaena marginata",
+    image: dracaenaImg,
+    description: "The Dragon Tree is a modern-looking plant with thin, spiky leaves edged in red. It's perfect for contemporary spaces and is very low-maintenance.",
+    benefits: "Air cleaner, modern architectural look, removes benzene and formaldehyde",
+    care: {
+      watering: "Every 2 weeks, drought tolerant",
+      sunlight: "Bright filtered light",
+      soil: "Loose, well-draining potting soil"
+    },
+    difficultyLevel: "Easy",
+    lifespan: "15+ years, can grow quite tall"
+  },
+  {
+    id: 19,
+    name: "Calathea",
+    scientificName: "Calathea lancifolia",
+    image: calatheaImg,
+    description: "Calathea, also known as Rattlesnake Plant, features stunning patterned leaves that fold up at night. It's safe for pets and adds tropical beauty to any room.",
+    benefits: "Tropical vibe, pet-safe, prayer plant movement, air humidification",
+    care: {
+      watering: "Twice a week, keep soil consistently moist",
+      sunlight: "Low to medium indirect light",
+      soil: "Moisture-retaining, well-draining soil"
+    },
+    difficultyLevel: "Medium",
+    lifespan: "2-5 years indoors"
+  },
+  {
+    id: 20,
+    name: "Fiddle Leaf Fig",
+    scientificName: "Ficus lyrata",
+    image: fiddleLeafFigImg,
+    description: "The Fiddle Leaf Fig is a trendy houseplant with large, violin-shaped leaves. It makes a bold statement in any room and can grow into an impressive indoor tree.",
+    benefits: "Stylish statement piece, air purifier, Instagram-worthy decor plant",
+    care: {
+      watering: "Weekly, water when top inch of soil is dry",
+      sunlight: "Bright indirect light, some morning sun",
+      soil: "Loamy, well-drained potting soil"
+    },
+    difficultyLevel: "Hard",
+    lifespan: "15+ years, can become a large indoor tree"
   }
 ];
